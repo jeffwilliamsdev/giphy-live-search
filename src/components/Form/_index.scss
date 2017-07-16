@@ -1,0 +1,106 @@
+input, select {
+
+	transition: background 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	border-bottom: 2px solid $color_black-light;
+	width: 100%;
+	margin-bottom: 40px;
+	background: transparent;
+
+	&:after {
+		content: '';
+		position: absolute;
+		height:1px;
+		width: 50%;
+		background:red;
+		bottom: 0;
+	}
+	& + div {
+		height: 2px;
+		width: 0;
+		bottom: 40px;
+		position: absolute;
+		background: $color_black;
+		transition: width 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	}
+	&:focus + div {
+		width: 100%;
+	}
+}
+select {
+	-webkit-appearance: none;
+	border-radius: 0;
+	background: url(./assets/svg/select-down-arrow.svg) calc(100% - 20px) center no-repeat;
+	background-size: 20px;
+
+	&:invalid {
+		// color: $color_black-light;
+		color: red;
+	}
+}
+.anti {
+	display: none;
+}
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+#sendingMessage {
+    pointer-events: none;
+
+    &.sending {
+        // animation: slightDip 1.75s infinite forwards;
+    }
+    .L {
+        display: inline-block;
+    }
+    @for $i from 8 through 10 {
+        span:nth-child(#{$i}) {
+            animation:opacify 1.5s infinite forwards;
+            animation-delay:$i * .25s;
+        }
+    }
+}
+
+#errorMessage {
+    margin-top: 60px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+
+    &.error {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+ // - - - - - PROJECT SPECIFIC CSS - - - - - //
+
+
+
+ @keyframes opacify {
+    0 {
+        opacity:0;
+    }
+    90% {
+        opacity:.45;
+    }
+}
+@keyframes slightDip {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    20% {
+            transform: translate(-50%, -50%) rotate(5deg);
+    }
+    25% {
+            transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    33% {
+            transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
