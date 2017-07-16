@@ -1,2 +1,1 @@
-# - Created ReactJS Boilerplate - SSR -
-# Developers: Jeremy Fishman, Jeff Williams & Braden Witherwax
+# React-js boilerplate with server side rendering
