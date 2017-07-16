@@ -1,1 +1,1 @@
-# React-js boilerplate with server side rendering
+# Live giphy search with infinite scrolling using the giphy api
